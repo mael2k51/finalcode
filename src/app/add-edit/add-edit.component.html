@@ -1,0 +1,35 @@
+<form [formGroup]="contactForm" (ngSubmit)="onFormSubmit()" class="employee-form">
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Full Name</mat-label>
+    <input matInput formControlName="fullName" />
+    <mat-error *ngIf="contactForm.get('fullName')?.hasError('required') && contactForm.get('fullName')?.touched">
+      Full name is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+    <mat-error *ngIf="contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched">
+      Email is required
+    </mat-error>
+    <mat-error *ngIf="contactForm.get('email')?.hasError('email') && contactForm.get('email')?.touched">
+      Invalid email format
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Contact</mat-label>
+    <input matInput formControlName="contact" />
+    <mat-error *ngIf="contactForm.get('contact')?.hasError('required') && contactForm.get('contact')?.touched">
+      Contact is required
+    </mat-error>
+  </mat-form-field>
+
+  <div class="form-actions">
+    <button mat-raised-button color="primary" type="submit">
+      {{ selectedContactId ? 'Update' : 'Add' }}
+    </button>
+  </div>
+</form>

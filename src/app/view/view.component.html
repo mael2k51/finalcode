@@ -1,0 +1,19 @@
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="!errorMessage && employee" class="employee-details">
+  <!-- Back Button -->
+  <button mat-raised-button color="primary" (click)="goBack()">
+  <mat-icon>arrow_back</mat-icon>
+  Back
+</button>
+
+  <h3>Contact Information</h3>
+  <div class="info">
+    <p><strong>ID:</strong> {{ employee.id }}</p>
+    <p><strong>Name:</strong> {{ employee.fullName }}</p>
+    <p><strong>Email:</strong> {{ employee.email }}</p>
+    <p><strong>Contact:</strong> {{ employee.contact }}</p>
+  </div>
+</div>
